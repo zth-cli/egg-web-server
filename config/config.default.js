@@ -40,6 +40,12 @@ module.exports = appInfo => {
     maxAge: 0,
     buffer: false,
   };
+  //  模板渲染
+  config.view = {
+    mapping: {
+      '.html': 'nunjucks',
+    },
+  };
   // 文件上传
   config.multipart = {
     // mode: 'file',
@@ -51,11 +57,11 @@ module.exports = appInfo => {
     cert: 'huanggegehaoshuai', // jwt秘钥
   };
   // add your middleware config here
-  config.middleware = ['errorHandler'];
+  config.middleware = [ 'errorHandler' ];
   // sequelize管理mysql数据库
   config.sequelize = {
     dialect: 'mysql', // support: mysql, mariadb, postgres, mssql
-    database: 'nodesql',
+    database: 'eggweb',
     host: 'localhost',
     port: 3306,
     username: 'root',

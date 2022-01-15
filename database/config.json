@@ -2,22 +2,22 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "nodesql",
+    "database": "eggweb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "nodesql",
+    "database": "eggweb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "root",
-    "database": "nodesql",
-    "host": "10.172.246.206",
+    "database": "eggweb",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }

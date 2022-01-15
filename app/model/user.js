@@ -15,7 +15,7 @@ module.exports = app => {
     timestamps: false,
     freezeTableName: true,
   });
-
+  // User.sync(); // 创建表
   return User;
 };
 /*  Now you can use it in your controller:
