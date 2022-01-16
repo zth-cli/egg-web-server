@@ -17,6 +17,12 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1642227292130_8242';
   config.security = {
     csrf: {
+      queryName: '_csrf', // 通过 query 传递 CSRF token 的默认字段为 _csrf
+      bodyName: '_csrf', // 通过 body 传递 CSRF token 的默认字段为 _csrf
+      headerName: 'x-csrf-tokens', // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
+      // useSession: true, // 默认为 false，当设置为 true 时，将会把 csrf token 保存到 Session 中
+      cookieName: 'csrfTokens', // Cookie 中的字段名，默认为 csrfToken
+      // sessionName: 'csrfToken', // Session 中的字段名，默认为 csrfToken
       ignore: ctx => {
         if ([].includes(ctx.request.url)) {
           return true;
@@ -56,8 +62,8 @@ module.exports = appInfo => {
   config.jwt = {
     cert: 'huanggegehaoshuai', // jwt秘钥
   };
-  // add your middleware config here
-  config.middleware = [ 'errorHandler' ];
+  // 配置需要的中间件，数组顺序即为中间件的加载顺序
+  config.middleware = ['errorHandler'];
   // sequelize管理mysql数据库
   config.sequelize = {
     dialect: 'mysql', // support: mysql, mariadb, postgres, mssql
@@ -80,6 +86,7 @@ module.exports = appInfo => {
     define: {
       timestamps: false, // 禁止自动创建 created_at和updated_at
       freezeTableName: true, // 禁止转换为复数
+      underscored: true, // 禁止自动驼峰
     },
   };
   // add your user config here

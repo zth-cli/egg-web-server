@@ -1,11 +1,3 @@
-<!--
- * @Author: 阮志雄
- * @Date: 2021-04-24 15:57:18
- * @LastEditTime: 2021-04-24 23:04:14
- * @LastEditors: 阮志雄
- * @Description: In User Settings Edit
- * @FilePath: \koa2-blog\views\home\index.html
--->
 {% extends "parent.html" %}
 
 {% block head %}
@@ -35,10 +27,10 @@
         <a class="home-article-read" href="/article/{{item.id}}">
             README MORE &gt;&gt;&gt;
         </a>
-         {% if item.tags %}
+         {% if item.tags.length %}
         <div class="passage-tags">
-            {% for ele in item.tags.split(',') %}
-                <a href="/tag/{{ele}}"><i class="iconfont">&#xe658;</i>{{ele}}</a>
+            {% for ele in item.tags %}
+                <a href="/tag/{{ele.id}}"><i class="iconfont">&#xe658;</i>{{ele.title}}</a>
             {% endfor %}
         </div> 
         {% endif %}  

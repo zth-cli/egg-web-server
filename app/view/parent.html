@@ -19,7 +19,7 @@
             <div class="nav_right">
                 <div>
                     <a href="/">首页</a>
-                    <a href="/tag">分类</a>
+                    <!-- <a href="/tag">标签</a> -->
                     <a href="/classify">标签</a>
                 </div>
             </div>
@@ -45,7 +45,8 @@
             return ""
         }
         $("#to_top").click(function () {
-            $('html').animate({ scrollTop: 0 }, 500);
+            console.log(111);
+            $('.main_view').animate({ scrollTop: 0 }, 500);
         })
 
     </script>

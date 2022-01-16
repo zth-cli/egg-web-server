@@ -8,7 +8,7 @@ module.exports = {
       content: STRING,
       title: STRING,
       invisible: INTEGER,
-      tags: STRING(100),
+      tags_name: STRING(100),
       create_time: DATE,
       update_time: DATE,
       detail: STRING,

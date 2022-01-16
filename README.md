@@ -31,3 +31,10 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+### sequelize
+- 创建一个 一对一 关系, hasOne 和 belongsTo 关联一起使用;
+- 创建一个 一对多 关系, hasMany he belongsTo 关联一起使用;
+- 创建一个 多对多 关系, 两个 belongsToMany 调用一起使用.
+> 更多sequelize使用，参考[中文文档](https://demopark.github.io/sequelize-docs-Zh-CN/)
+<!-- https://demopark.github.io/sequelize-docs-Zh-CN/ -->

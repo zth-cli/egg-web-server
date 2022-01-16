@@ -9,8 +9,29 @@ const Service = require('egg').Service;
 
 class HomeService extends Service {
   async index() {
-    const { ctx } = this;
-    return ctx.url;
+    // console.log(this.ctx.model.fn);
+    const blogModel = this.ctx.model.Article;
+    const typeModel = this.ctx.model.Tags;
+    // 下面是重点，blogModel的type_id，指向typeModel的id
+    blogModel.belongsToMany(typeModel, { through: this.ctx.model.ArtcileToTags });
+    typeModel.belongsToMany(blogModel, { through: this.ctx.model.ArtcileToTags });
+    const result = await blogModel.findAndCountAll({
+      include: [{ model: typeModel, attributes: [ 'title', 'id' ] }],
+    });
+    return result;
+  }
+  async findArticleByTagId(tagId) {
+    // [ this.ctx.model.fn('COUNT', this.ctx.model.col('title')), 'n_hats' ],
+    const blogModel = this.ctx.model.Article;
+    const typeModel = this.ctx.model.Tags;
+    // 下面是重点，blogModel的type_id，指向typeModel的id
+    // blogModel.belongsToMany(typeModel, { through: this.ctx.model.ArtcileToTags });
+    typeModel.belongsToMany(blogModel, { through: this.ctx.model.ArtcileToTags });
+    const result = await typeModel.findOne({
+      where: { id: tagId },
+      include: [{ model: blogModel, attributes: [ 'title',  'id' ] }],
+    });
+    return result;
   }
 }
 

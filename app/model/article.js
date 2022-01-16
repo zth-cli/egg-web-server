@@ -1,20 +1,26 @@
 // app/model/user.js
 'use strict';
 module.exports = app => {
-  const { INTEGER, STRING, DATE } = app.Sequelize;
+  const { INTEGER, STRING, DATE, VIRTUAL } = app.Sequelize;
 
   const Article = app.model.define('article', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     content: STRING,
     title: STRING,
     invisible: INTEGER,
-    tags: STRING(100),
+    tags_name: STRING(100),
     create_time: DATE,
     update_time: DATE,
     detail: STRING,
     author: STRING(20),
     url: STRING(40),
     pv: INTEGER,
+    fullName: {
+      type: VIRTUAL,
+      get() {
+        return `${this.title} ${this.author}`;
+      },
+    },
   }, {
     timestamps: false,
     freezeTableName: true,
