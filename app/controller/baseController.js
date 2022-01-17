@@ -11,7 +11,7 @@ class BaseController extends Controller {
   }
   async success(data = null, message = '操作成功！') {
     this.ctx.body = {
-      code: 1,
+      errno: 0,
       data,
       msg: message,
     };
@@ -19,7 +19,7 @@ class BaseController extends Controller {
 
   async error(data = null, message = '操作失败:发生未知异常！') {
     this.ctx.body = {
-      code: 0,
+      errno: 1,
       data,
       msg: message,
     };

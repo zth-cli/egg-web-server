@@ -9,12 +9,12 @@
     <div class="classify-wrap">
     {% for item in list %}
          <span class="classify-item">      
-            {% if item.num<=3 %}
-             <a target="_self" href="/tag/{{item.type}}" style="font-size:16px">{{item.type}}</a>
-            {% elseif item.num>=10  %}
-             <a target="_self" href="/tag/{{item.type}}" style="font-size:54px">{{item.type}}</a>
+            {% if item['article_num']<=3 %}
+             <a target="_self" href="/tag/{{item['tag.id']}}" style="font-size:24px">{{item['tag.name']}}</a>
+            {% elseif item['article_num']>=10  %}
+             <a target="_self" href="/tag/{{item['tag.id']}}" style="font-size:54px">{{item['tag.name']}}</a>
             {% else  %}
-             <a target="_self" href="/tag/{{item.type}}" style="font-size:34px">{{item.type}}</a>
+             <a target="_self" href="/tag/{{item['tag.id']}}" style="font-size:34px">{{item['tag.name']}}</a>
             {% endif %}
         </span>
     {% endfor %}

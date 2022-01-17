@@ -1,11 +1,11 @@
 // app/model/user.js
 'use strict';
 module.exports = app => {
-  const { INTEGER, STRING, DATE, VIRTUAL } = app.Sequelize;
+  const { INTEGER, STRING, DATE, VIRTUAL, TEXT } = app.Sequelize;
 
   const Article = app.model.define('article', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    content: STRING,
+    content: TEXT,
     title: STRING,
     invisible: INTEGER,
     tags_name: STRING(100),

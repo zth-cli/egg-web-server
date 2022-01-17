@@ -13,7 +13,7 @@ class HomeController extends Controller {
     const { count, rows } = await await ctx.service.home.index();
 
     await ctx.render('/home/index', {
-      title: 'Hello Koa 211!',
+      title: 'zth',
       token: ctx.cookies.get('token'),
       data: rows,
       total: count,
@@ -36,6 +36,13 @@ class HomeController extends Controller {
     await ctx.render('home/tags', {
       typeStr: data.title,
       list: data.articles,
+    });
+  }
+  async findTags() {
+    const { ctx } = this;
+    const data = await ctx.service.home.findTags();
+    await ctx.render('home/classify', {
+      list: data,
     });
   }
   async findUser() {

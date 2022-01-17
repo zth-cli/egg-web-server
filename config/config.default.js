@@ -31,6 +31,10 @@ module.exports = appInfo => {
       },
     },
   };
+  config.bodyParser = {
+    jsonLimit: '5mb',
+    formLimit: '5mb',
+  };
   config.session = {
     key: 'auth_session',
     maxAge: 4 * 3600 * 1000, // 1 天
@@ -57,6 +61,7 @@ module.exports = appInfo => {
     // mode: 'file',
     tmpdir: path.join(appInfo.baseDir, 'app/public/temp'),
     fields: '100', // 默认表单提交得长度为10
+    fileExtensions: ['.pdf', 'xlsx'],
   };
   // token密钥
   config.jwt = {
