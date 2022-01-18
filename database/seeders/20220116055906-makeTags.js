@@ -10,6 +10,9 @@ module.exports = {
     },
     {
       title: 'Vue',
+    },
+    {
+      title: 'React',
     }], {});
   },
 
